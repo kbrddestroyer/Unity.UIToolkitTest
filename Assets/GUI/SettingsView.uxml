@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="root" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.55); -unity-text-align: middle-center; align-items: center; justify-content: center;">
+        <ui:VisualElement name="settings" style="background-color: rgb(217, 217, 217); width: 165px; height: 175px; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; padding-top: 30px; justify-content: space-around;">
+            <ui:Label text="[Settings]" display-tooltip-when-elided="true" style="-unity-font: url(&apos;project://database/Assets/Fonts/Roboto-Black.ttf?fileID=12800000&amp;guid=0e9783d388719104fa7098f07ab08273&amp;type=3#Roboto-Black&apos;); -unity-font-style: bold;" />
+            <ui:GroupBox style="width: 100%; height: 65%; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 18px; padding-right: 18px; padding-top: 0; padding-bottom: 25px; align-items: center; justify-content: space-around; flex-direction: row;">
+                <ui:VisualElement style="width: 32px; height: 32px; background-image: url(&apos;project://database/Assets/GUI/Icons/music_note_FILL0_wght400_GRAD0_opsz24.svg?fileID=7388822144124034973&amp;guid=7b70d64dd4394bc42ade4dc1270ca78e&amp;type=3#music_note_FILL0_wght400_GRAD0_opsz24&apos;); -unity-background-scale-mode: scale-to-fit;" />
+                <ui:VisualElement style="width: 32px; height: 32px; background-image: url(&apos;project://database/Assets/GUI/Icons/volume_up_FILL0_wght400_GRAD0_opsz24%20(1).svg?fileID=7388822144124034973&amp;guid=c5b36449124bc7241bce5f25daa2530d&amp;type=3#volume_up_FILL0_wght400_GRAD0_opsz24 (1)&apos;); -unity-background-scale-mode: scale-and-crop;" />
+            </ui:GroupBox>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
