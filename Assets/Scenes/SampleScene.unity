@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 114386266}
   - component: {fileID: 114386265}
-  - component: {fileID: 114386264}
+  - component: {fileID: 114386267}
   m_Layer: 5
   m_Name: SettingsView
   m_TagString: Untagged
@@ -209,20 +209,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114386264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114386263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441fb6b749b489449a4ef63df793a3d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 114386265}
-  id: Play
 --- !u!114 &114386265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +216,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114386263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -254,6 +240,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114386267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114386263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4be1e7178377d0478e15d4606193be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiControllers: []
+  document: {fileID: 114386265}
+  isBaseView: 0
+  musicOn: {fileID: 7388822144124034973, guid: 7b70d64dd4394bc42ade4dc1270ca78e, type: 3}
+  musicOff: {fileID: 7388822144124034973, guid: 8db3dc5570d333046a677de8b8957501, type: 3}
+  soundOn: {fileID: 7388822144124034973, guid: c5b36449124bc7241bce5f25daa2530d, type: 3}
+  soundOff: {fileID: 7388822144124034973, guid: 3fef551f07815ed4b97c018146400476, type: 3}
+  mixer: {fileID: 24100000, guid: 3ce3184753e9a7a46a94004fef0c3eb3, type: 2}
+  musicBtn:
+    root: {fileID: 114386265}
+    id: music
+    onClick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114386267}
+          m_TargetAssemblyTypeName: SettingsViewController, Assembly-CSharp
+          m_MethodName: ToggleMusic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  soundBtn:
+    root: {fileID: 114386265}
+    id: sound
+    onClick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114386267}
+          m_TargetAssemblyTypeName: SettingsViewController, Assembly-CSharp
+          m_MethodName: ToggleSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,6 +307,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -338,6 +381,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fcb5eb292de4647ad1c9e859007984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dailies: 05000000050000000a0000000a0000000f0000000f000000
 --- !u!1 &721198051
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,13 +404,15 @@ GameObject:
   m_Component:
   - component: {fileID: 721198053}
   - component: {fileID: 721198052}
+  - component: {fileID: 721198054}
+  - component: {fileID: 721198055}
   m_Layer: 5
   m_Name: DailyReward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &721198052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +444,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721198054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721198051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b271af08f1565a94e9512c5dd0555405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiControllers: []
+  document: {fileID: 0}
+  isBaseView: 0
+--- !u!114 &721198055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721198051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b964fcdf9cad7d34aac06af68d75a378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1405515165
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +481,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1405515167}
   - component: {fileID: 1405515166}
-  - component: {fileID: 1405515168}
+  - component: {fileID: 1405515169}
+  - component: {fileID: 1405515170}
   m_Layer: 5
   m_Name: MainView
   m_TagString: Untagged
@@ -435,7 +521,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1405515168
+--- !u!114 &1405515169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,11 +530,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 1405515165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441fb6b749b489449a4ef63df793a3d8, type: 3}
+  m_Script: {fileID: 11500000, guid: b271af08f1565a94e9512c5dd0555405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 1405515166}
-  id: Play
+  uiControllers:
+  - root: {fileID: 1405515166}
+    id: Settings
+    onClick:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1405515170}
+          m_TargetAssemblyTypeName: ViewSwitcher, Assembly-CSharp
+          m_MethodName: SwitchScene
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 114386265}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UIElements.UIDocument,
+              UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  document: {fileID: 0}
+  isBaseView: 1
+--- !u!114 &1405515170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405515165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bdb3b99e1e1dfa43a8022ee638cc7aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943754158
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,13 +576,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1943754161}
   - component: {fileID: 1943754160}
+  - component: {fileID: 1943754162}
   m_Layer: 5
   m_Name: DailyBonusView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1943754160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,7 +591,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943754158}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -497,3 +615,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1943754162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943754158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b271af08f1565a94e9512c5dd0555405, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiControllers: []
+  document: {fileID: 0}
+  isBaseView: 0

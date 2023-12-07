@@ -1,11 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
+[RequireComponent(typeof(UIDocument))]
 public class ViewController : MonoBehaviour
 {
-    public void Action()
+    [SerializeField] private List<BaseButtonController> uiControllers;
+    [SerializeField] private UIDocument document;
+    [SerializeField] private bool isBaseView;
+
+    private void OnEnable()
     {
-        Debug.Log($"Called action on {name}");
+        document = GetComponent<UIDocument>();
+        foreach (BaseButtonController controller in uiControllers)
+        {
+            controller.Enable();
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isBaseView)
+        {
+            document.gameObject.SetActive(false);
+        }
     }
 }

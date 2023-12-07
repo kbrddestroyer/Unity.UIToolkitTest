@@ -5,18 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-[Serializable]
-[RequireComponent(typeof(UIDocument))]
-public class BaseButtonController : MonoBehaviour
+[System.Serializable]
+public class BaseButtonController
 {
-    [Header("GUI Setup")]
     [SerializeField] private UIDocument root;
     [SerializeField] private string id;
     [SerializeField] private UnityEvent onClick = new UnityEvent();
 
     private Button controlled;
-
-    private void OnEnable()
+    public Button Controlled { get => controlled; }
+    public void Enable()
     {
         controlled = root.rootVisualElement.Q<Button>(id);
         controlled.RegisterCallback<ClickEvent>(ClickMessage);
@@ -25,5 +23,10 @@ public class BaseButtonController : MonoBehaviour
     protected virtual void ClickMessage(ClickEvent e)
     {
         onClick.Invoke();
+    }
+
+    public void ChangeBackgroundImage(VectorImage image)
+    {
+        controlled.style.backgroundImage = new StyleBackground(image);
     }
 }
