@@ -34,23 +34,20 @@ public class SettingsViewController : ViewController
         {
             soundEnabled = value;
             soundBtn.ChangeBackgroundImage((soundEnabled) ? soundOn : soundOff);
-            SoundController.Instance?.ToggleSound(soundEnabled);
+            SoundController.Instance.ToggleSound(soundEnabled);
         }
     }
 
     private void OnEnable()
     {
+        musicEnabled = PlayerPrefs.GetInt("music", 1) == 1;
+        soundEnabled = PlayerPrefs.GetInt("sound", 1) == 1;
+
         musicBtn.Enable();
         soundBtn.Enable();
 
         musicBtn.ChangeBackgroundImage((musicEnabled) ? musicOn : musicOff);
         soundBtn.ChangeBackgroundImage((soundEnabled) ? soundOn : soundOff);
-    }
-
-    public void Start()
-    {
-        musicEnabled = PlayerPrefs.GetInt("music", 1) == 1;
-        soundEnabled = PlayerPrefs.GetInt("sound", 1) == 1;
     }
 
     public void ToggleMusic() { Music = !Music; }
